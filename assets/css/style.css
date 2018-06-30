@@ -17,6 +17,8 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  border: 0.1px solid black;
 }
 
 .obi-wan,
@@ -24,17 +26,22 @@ html {
 .darth_sidious,
 .darth_maul {
   border: 1px solid green;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 0;
+  width: 23.5%;
+  height: 80%;
 }
 
 img {
+  /* width: 55%; */
+  /* height: 80%; */
   width: 65%;
   height: 65%;
 }
 
 .container {
   margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 .name {
@@ -46,5 +53,11 @@ img {
 #darth-sidious-hp,
 #darth-maul-hp {
   margin-bottom: 5px;
+}
+
+#obi-wan-hp,
+#luke-hp,
+#darth-sidious-hp,
+#darth-maul-hp {
   padding: 0;
 }
