@@ -28,14 +28,12 @@ html {
   border: 1px solid green;
   padding: 0;
   width: 23.5%;
-  height: 80%;
+  height: 75%;
 }
 
 img {
-  /* width: 55%; */
-  /* height: 80%; */
-  width: 65%;
-  height: 65%;
+  width: 67%;
+  height: 67%;
 }
 
 .container {
