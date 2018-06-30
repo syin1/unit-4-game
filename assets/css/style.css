@@ -1,0 +1,50 @@
+body,
+html {
+  height: 100%;
+  color: white;
+  text-align: center;
+  font-size: 9px;
+}
+
+.bg {
+  /* The image used */
+  background-image: url('../images/starwars_background.jpg');
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.obi-wan,
+.luke,
+.darth_sidious,
+.darth_maul {
+  border: 1px solid green;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+img {
+  width: 65%;
+  height: 65%;
+}
+
+.container {
+  margin-left: 10px;
+}
+
+.name {
+  margin-top: 5px;
+}
+
+#obi-wan-hp,
+#luke-hp,
+#darth-sidious-hp,
+#darth-maul-hp {
+  margin-bottom: 5px;
+  padding: 0;
+}
