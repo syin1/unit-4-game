@@ -4,8 +4,8 @@ $(document).ready(function() {
     hp: 120,
     hpSelector: '.obi-wan-hp',
     defenderSelector: '.defender-obi-wan',
-    baseAttackPower: 6,
-    attackPower: 6,
+    baseAttackPower: 12,
+    attackPower: 20,
     counterAttackPower: 20
   };
 
@@ -177,6 +177,7 @@ $(document).ready(function() {
 
       remove(enemyCharacter, obiWan);
       defenderCharacter.push(obiWan);
+      $('.result').text('');
       $('.defender-obi-wan').css('background-color', 'black');
       $('.defender-obi-wan').show();
     }
@@ -192,6 +193,7 @@ $(document).ready(function() {
 
       remove(enemyCharacter, luke);
       defenderCharacter.push(luke);
+      $('.result').text('');
       $('.defender-luke').css('background-color', 'black');
       $('.defender-luke').show();
     }
@@ -207,6 +209,7 @@ $(document).ready(function() {
 
       remove(enemyCharacter, darthS);
       defenderCharacter.push(darthS);
+      $('.result').text('');
       $('.defender-darth_sidious').css('background-color', 'black');
       $('.defender-darth_sidious').show();
     }
@@ -222,25 +225,30 @@ $(document).ready(function() {
 
       remove(enemyCharacter, darthM);
       defenderCharacter.push(darthM);
+      $('.result').text('');
       $('.defender-darth_maul').css('background-color', 'black');
       $('.defender-darth_maul').show();
     }
   });
 
   $('.btn-primary').on('click', function() {
-    var toDamage = yourCharacter[0].attackPower;
+    if (defenderCharacter.length === 0) {
+      $('.result').text('No enemy here.');
+    } else {
+      var toDamage = yourCharacter[0].attackPower;
 
-    yourCharacter[0].attackPower =
-      yourCharacter[0].attackPower + yourCharacter[0].baseAttackPower;
+      yourCharacter[0].attackPower =
+        yourCharacter[0].attackPower + yourCharacter[0].baseAttackPower;
 
-    var defenderName = defenderCharacter[0].name;
-    var backDamage = defenderCharacter[0].counterAttackPower;
+      var defenderName = defenderCharacter[0].name;
+      var backDamage = defenderCharacter[0].counterAttackPower;
 
-    yourCharacter[0].hp = yourCharacter[0].hp - backDamage;
-    defenderCharacter[0].hp = defenderCharacter[0].hp - toDamage;
+      yourCharacter[0].hp = yourCharacter[0].hp - backDamage;
+      defenderCharacter[0].hp = defenderCharacter[0].hp - toDamage;
 
-    $(yourCharacter[0].hpSelector).text(yourCharacter[0].hp);
-    $(defenderCharacter[0].hpSelector).text(defenderCharacter[0].hp);
+      $(yourCharacter[0].hpSelector).text(yourCharacter[0].hp);
+      $(defenderCharacter[0].hpSelector).text(defenderCharacter[0].hp);
+    }
 
     if (yourCharacter[0].hp <= 0) {
       $('.result').text('You have been defeated...GAME OVER!!!');
