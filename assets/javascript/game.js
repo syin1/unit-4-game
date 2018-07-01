@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  gameOver = false;
   var obiWan = {
     name: 'Obi-Wan Kenobi',
     hp: 120,
@@ -232,47 +233,50 @@ $(document).ready(function() {
   });
 
   $('.btn-primary').on('click', function() {
-    if (defenderCharacter.length === 0) {
-      $('.result').text('No enemy here.');
-    } else {
-      var toDamage = yourCharacter[0].attackPower;
+    if (!gameOver) {
+      if (defenderCharacter.length === 0) {
+        $('.result').text('No enemy here.');
+      } else {
+        var toDamage = yourCharacter[0].attackPower;
 
-      yourCharacter[0].attackPower =
-        yourCharacter[0].attackPower + yourCharacter[0].baseAttackPower;
+        yourCharacter[0].attackPower =
+          yourCharacter[0].attackPower + yourCharacter[0].baseAttackPower;
 
-      var defenderName = defenderCharacter[0].name;
-      var backDamage = defenderCharacter[0].counterAttackPower;
+        var defenderName = defenderCharacter[0].name;
+        var backDamage = defenderCharacter[0].counterAttackPower;
 
-      yourCharacter[0].hp = yourCharacter[0].hp - backDamage;
-      defenderCharacter[0].hp = defenderCharacter[0].hp - toDamage;
+        yourCharacter[0].hp = yourCharacter[0].hp - backDamage;
+        defenderCharacter[0].hp = defenderCharacter[0].hp - toDamage;
 
-      $(yourCharacter[0].hpSelector).text(yourCharacter[0].hp);
-      $(defenderCharacter[0].hpSelector).text(defenderCharacter[0].hp);
-    }
+        $(yourCharacter[0].hpSelector).text(yourCharacter[0].hp);
+        $(defenderCharacter[0].hpSelector).text(defenderCharacter[0].hp);
+      }
 
-    if (yourCharacter[0].hp <= 0) {
-      $('.result').text('You have been defeated...GAME OVER!!!');
-      $('.btn-secondary').show();
-    } else if (defenderCharacter[0].hp <= 0) {
-      $('.result').text(
-        'You have defeated ' +
-          defenderName +
-          ', you can choose to fight another enemy.'
-      );
-      $(defenderCharacter[0].defenderSelector).hide();
-      defenderCharacter.pop();
-    } else {
-      $('.result').html(
-        'You attacked ' +
-          defenderName +
-          ' for ' +
-          toDamage +
-          ' damage.<br>' +
-          defenderName +
-          ' attacked back for ' +
-          backDamage +
-          ' damage.'
-      );
+      if (yourCharacter[0].hp <= 0) {
+        $('.result').text('You have been defeated...GAME OVER!!!');
+        gameOver = true;
+        $('.btn-secondary').show();
+      } else if (defenderCharacter[0].hp <= 0) {
+        $('.result').text(
+          'You have defeated ' +
+            defenderName +
+            ', you can choose to fight another enemy.'
+        );
+        $(defenderCharacter[0].defenderSelector).hide();
+        defenderCharacter.pop();
+      } else {
+        $('.result').html(
+          'You attacked ' +
+            defenderName +
+            ' for ' +
+            toDamage +
+            ' damage.<br>' +
+            defenderName +
+            ' attacked back for ' +
+            backDamage +
+            ' damage.'
+        );
+      }
     }
   });
 
