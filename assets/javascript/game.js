@@ -5,8 +5,8 @@ $(document).ready(function() {
     hp: 120,
     hpSelector: '.obi-wan-hp',
     defenderSelector: '.defender-obi-wan',
-    baseAttackPower: 12,
-    attackPower: 20,
+    baseAttackPower: 15,
+    attackPower: 30,
     counterAttackPower: 20
   };
 
@@ -37,7 +37,7 @@ $(document).ready(function() {
     defenderSelector: '.defender-darth_maul',
     baseAttackPower: 6,
     attackPower: 6,
-    counterAttackPower: 20
+    counterAttackPower: 15
   };
 
   var yourCharacter = [];
@@ -256,7 +256,7 @@ $(document).ready(function() {
         $('.result').text('You have been defeated...GAME OVER!!!');
         gameOver = true;
         $('.btn-secondary').show();
-      } else if (defenderCharacter[0].hp <= 0) {
+      } else if (defenderCharacter[0].hp <= 0 && enemyCharacter.length > 0) {
         $('.result').text(
           'You have defeated ' +
             defenderName +
@@ -264,6 +264,10 @@ $(document).ready(function() {
         );
         $(defenderCharacter[0].defenderSelector).hide();
         defenderCharacter.pop();
+      } else if (defenderCharacter[0].hp <= 0 && enemyCharacter.length === 0) {
+        $('.result').text('You Won!!! GAME OVER!!!');
+        gameOver = true;
+        $('.btn-secondary').show();
       } else {
         $('.result').html(
           'You attacked ' +
