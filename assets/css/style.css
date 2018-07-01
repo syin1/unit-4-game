@@ -31,6 +31,25 @@ html {
   height: 75%;
 }
 
+.your-obi-wan,
+.your-luke,
+.your-darth_sidious,
+.your-darth_maul,
+.enemy-obi-wan,
+.enemy-luke,
+.enemy-darth_sidious,
+.enemy-darth_maul,
+.defender-obi-wan,
+.defender-luke,
+.defender-darth_sidious,
+.defender-darth_maul {
+  display: none;
+  border: 1px solid green;
+  padding: 0;
+  width: 23.5%;
+  height: 75%;
+}
+
 img {
   width: 67%;
   height: 67%;
@@ -51,12 +70,6 @@ img {
 #darth-sidious-hp,
 #darth-maul-hp {
   margin-bottom: 5px;
-}
-
-#obi-wan-hp,
-#luke-hp,
-#darth-sidious-hp,
-#darth-maul-hp {
   padding: 0;
 }
 
