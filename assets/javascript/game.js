@@ -5,8 +5,8 @@ $(document).ready(function() {
     hp: 120,
     hpSelector: '.obi-wan-hp',
     defenderSelector: '.defender-obi-wan',
-    baseAttackPower: 15,
-    attackPower: 30,
+    baseAttackPower: 20,
+    attackPower: 20,
     counterAttackPower: 20
   };
 
@@ -15,9 +15,9 @@ $(document).ready(function() {
     hp: 100,
     hpSelector: '.luke-hp',
     defenderSelector: '.defender-luke',
-    baseAttackPower: 6,
-    attackPower: 6,
-    counterAttackPower: 15
+    baseAttackPower: 35,
+    attackPower: 35,
+    counterAttackPower: 25
   };
 
   var darthS = {
@@ -25,9 +25,9 @@ $(document).ready(function() {
     hp: 150,
     hpSelector: '.darth-sidious-hp',
     defenderSelector: '.defender-darth_sidious',
-    baseAttackPower: 6,
-    attackPower: 6,
-    counterAttackPower: 20
+    baseAttackPower: 15,
+    attackPower: 15,
+    counterAttackPower: 15
   };
 
   var darthM = {
@@ -35,8 +35,8 @@ $(document).ready(function() {
     hp: 180,
     hpSelector: '.darth-maul-hp',
     defenderSelector: '.defender-darth_maul',
-    baseAttackPower: 6,
-    attackPower: 6,
+    baseAttackPower: 10,
+    attackPower: 10,
     counterAttackPower: 15
   };
 
