@@ -1,5 +1,62 @@
 $(document).ready(function() {
+  var obiWan = {
+    name: 'Obi-Wan Kenobi',
+    hp: 120,
+    hpSelector: '.obi-wan-hp',
+    defenderSelector: '.defender-obi-wan',
+    baseAttackPower: 6,
+    attackPower: 6,
+    counterAttackPower: 20
+  };
+
+  var luke = {
+    name: 'Luke Skywalker',
+    hp: 100,
+    hpSelector: '.luke-hp',
+    defenderSelector: '.defender-luke',
+    baseAttackPower: 6,
+    attackPower: 6,
+    counterAttackPower: 15
+  };
+
+  var darthS = {
+    name: 'Darth Sidious',
+    hp: 150,
+    hpSelector: '.darth-sidious-hp',
+    defenderSelector: '.defender-darth_sidious',
+    baseAttackPower: 6,
+    attackPower: 6,
+    counterAttackPower: 20
+  };
+
+  var darthM = {
+    name: 'Darth Maul',
+    hp: 180,
+    hpSelector: '.darth-maul-hp',
+    defenderSelector: '.defender-darth_maul',
+    baseAttackPower: 6,
+    attackPower: 6,
+    counterAttackPower: 20
+  };
+
+  var yourCharacter = [];
+  var enemyCharacter = [];
+  var defenderCharacter = [];
+
+  function remove(array, element) {
+    const index = array.indexOf(element);
+
+    if (index !== -1) {
+      array.splice(index, 1);
+    }
+  }
+
   $('.obi-wan').on('click', function() {
+    yourCharacter.push(obiWan);
+    enemyCharacter.push(luke);
+    enemyCharacter.push(darthS);
+    enemyCharacter.push(darthM);
+
     // hide all first-row selections
     $('.obi-wan').hide();
     $('.luke').hide();
@@ -103,6 +160,8 @@ $(document).ready(function() {
     ) {
       $('.enemy-obi-wan').hide();
 
+      remove(enemyCharacter, obiWan);
+      defenderCharacter.push(obiWan);
       $('.defender-obi-wan').css('background-color', 'black');
       $('.defender-obi-wan').show();
     }
@@ -116,6 +175,8 @@ $(document).ready(function() {
     ) {
       $('.enemy-luke').hide();
 
+      remove(enemyCharacter, luke);
+      defenderCharacter.push(luke);
       $('.defender-luke').css('background-color', 'black');
       $('.defender-luke').show();
     }
@@ -147,9 +208,44 @@ $(document).ready(function() {
     }
   });
 
-  $('.btn').on('click', function() {
-    alert('hello');
-    $('.result1').text('You attacked placeholder for placeholder damage.');
-    $('.result2').text('Placeholder attacked you back for placeholder damage.');
+  $('.btn-primary').on('click', function() {
+    var toDamage = yourCharacter[0].attackPower;
+
+    yourCharacter[0].attackPower =
+      yourCharacter[0].attackPower + yourCharacter[0].baseAttackPower;
+
+    var defenderName = defenderCharacter[0].name;
+    var backDamage = defenderCharacter[0].counterAttackPower;
+
+    yourCharacter[0].hp = yourCharacter[0].hp - backDamage;
+    defenderCharacter[0].hp = defenderCharacter[0].hp - toDamage;
+
+    $(yourCharacter[0].hpSelector).text(yourCharacter[0].hp);
+    $(defenderCharacter[0].hpSelector).text(defenderCharacter[0].hp);
+
+    if (yourCharacter[0].hp <= 0) {
+      $('.result').text('You have been defeated...GAME OVER!!!');
+      $('.btn-secondary').show();
+    } else if (defenderCharacter[0].hp <= 0) {
+      $('.result').text(
+        'You have defeated ' +
+          defenderName +
+          ', you can choose to fight another enemy.'
+      );
+      $(defenderCharacter[0].defenderSelector).hide();
+      defenderCharacter.pop();
+    } else {
+      $('.result').html(
+        'You attacked ' +
+          defenderName +
+          ' for ' +
+          toDamage +
+          ' damage.<br>' +
+          defenderName +
+          ' attacked back for ' +
+          backDamage +
+          ' damage.'
+      );
+    }
   });
 });

@@ -50,6 +50,10 @@ html {
   height: 75%;
 }
 
+.btn-secondary {
+  display: none;
+}
+
 img {
   width: 67%;
   height: 67%;
