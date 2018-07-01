@@ -10,8 +10,16 @@ $(document).ready(function() {
     $('.your-obi-wan').show();
 
     // put the rest as enemies
+    $('.enemy-luke').css('background-color', 'red');
+    $('.enemy-luke').css('border', '1px solid black');
     $('.enemy-luke').show();
+
+    $('.enemy-darth_sidious').css('background-color', 'red');
+    $('.enemy-darth_sidious').css('border', '1px solid black');
     $('.enemy-darth_sidious').show();
+
+    $('.enemy-darth_maul').css('background-color', 'red');
+    $('.enemy-darth_maul').css('border', '1px solid black');
     $('.enemy-darth_maul').show();
   });
 
@@ -26,8 +34,16 @@ $(document).ready(function() {
     $('.your-luke').show();
 
     // put the rest as enemies
+    $('.enemy-obi-wan').css('background-color', 'red');
+    $('.enemy-obi-wan').css('border', '1px solid black');
     $('.enemy-obi-wan').show();
+
+    $('.enemy-darth_sidious').css('background-color', 'red');
+    $('.enemy-darth_sidious').css('border', '1px solid black');
     $('.enemy-darth_sidious').show();
+
+    $('.enemy-darth_maul').css('background-color', 'red');
+    $('.enemy-darth_maul').css('border', '1px solid black');
     $('.enemy-darth_maul').show();
   });
 
@@ -42,8 +58,16 @@ $(document).ready(function() {
     $('.darth_sidious').show();
 
     // put the rest as enemies
+    $('.enemy-obi-wan').css('background-color', 'red');
+    $('.enemy-obi-wan').css('border', '1px solid black');
     $('.enemy-obi-wan').show();
+
+    $('.enemy-luke').css('background-color', 'red');
+    $('.enemy-luke').css('border', '1px solid black');
     $('.enemy-luke').show();
+
+    $('.enemy-darth_maul').css('background-color', 'red');
+    $('.enemy-darth_maul').css('border', '1px solid black');
     $('.enemy-darth_maul').show();
   });
 
@@ -58,8 +82,16 @@ $(document).ready(function() {
     $('.darth_maul').show();
 
     // put the rest as enemies
+    $('.enemy-obi-wan').css('background-color', 'red');
+    $('.enemy-obi-wan').css('border', '1px solid black');
     $('.enemy-obi-wan').show();
+
+    $('.enemy-luke').css('background-color', 'red');
+    $('.enemy-luke').css('border', '1px solid black');
     $('.enemy-luke').show();
+
+    $('.enemy-darth_sidious').css('background-color', 'red');
+    $('.enemy-darth_sidious').css('border', '1px solid black');
     $('.enemy-darth_sidious').show();
   });
 
@@ -70,6 +102,8 @@ $(document).ready(function() {
       $('.defender-darth_maul').is(':hidden')
     ) {
       $('.enemy-obi-wan').hide();
+
+      $('.defender-obi-wan').css('background-color', 'black');
       $('.defender-obi-wan').show();
     }
   });
@@ -81,6 +115,8 @@ $(document).ready(function() {
       $('.defender-darth_maul').is(':hidden')
     ) {
       $('.enemy-luke').hide();
+
+      $('.defender-luke').css('background-color', 'black');
       $('.defender-luke').show();
     }
   });
@@ -92,6 +128,8 @@ $(document).ready(function() {
       $('.defender-darth_maul').is(':hidden')
     ) {
       $('.enemy-darth_sidious').hide();
+
+      $('.defender-darth_sidious').css('background-color', 'black');
       $('.defender-darth_sidious').show();
     }
   });
@@ -103,6 +141,8 @@ $(document).ready(function() {
       $('.defender-darth_sidious').is(':hidden')
     ) {
       $('.enemy-darth_maul').hide();
+
+      $('.defender-darth_maul').css('background-color', 'black');
       $('.defender-darth_maul').show();
     }
   });
