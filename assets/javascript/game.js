@@ -146,4 +146,10 @@ $(document).ready(function() {
       $('.defender-darth_maul').show();
     }
   });
+
+  $('.btn').on('click', function() {
+    alert('hello');
+    $('.result1').text('You attacked placeholder for placeholder damage.');
+    $('.result2').text('Placeholder attacked you back for placeholder damage.');
+  });
 });
