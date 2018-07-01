@@ -81,6 +81,11 @@ $(document).ready(function() {
   });
 
   $('.luke').on('click', function() {
+    yourCharacter.push(luke);
+    enemyCharacter.push(obiWan);
+    enemyCharacter.push(darthS);
+    enemyCharacter.push(darthM);
+
     // hide all first-row selections
     $('.obi-wan').hide();
     $('.luke').hide();
@@ -105,6 +110,11 @@ $(document).ready(function() {
   });
 
   $('.darth_sidious').on('click', function() {
+    yourCharacter.push(darthS);
+    enemyCharacter.push(obiWan);
+    enemyCharacter.push(luke);
+    enemyCharacter.push(darthM);
+
     // hide all first-row selections
     $('.obi-wan').hide();
     $('.luke').hide();
@@ -129,6 +139,11 @@ $(document).ready(function() {
   });
 
   $('.darth_maul').on('click', function() {
+    yourCharacter.push(darthM);
+    enemyCharacter.push(obiWan);
+    enemyCharacter.push(luke);
+    enemyCharacter.push(darthS);
+
     // hide all first-row selections
     $('.obi-wan').hide();
     $('.luke').hide();
@@ -190,6 +205,8 @@ $(document).ready(function() {
     ) {
       $('.enemy-darth_sidious').hide();
 
+      remove(enemyCharacter, darthS);
+      defenderCharacter.push(darthS);
       $('.defender-darth_sidious').css('background-color', 'black');
       $('.defender-darth_sidious').show();
     }
@@ -203,6 +220,8 @@ $(document).ready(function() {
     ) {
       $('.enemy-darth_maul').hide();
 
+      remove(enemyCharacter, darthM);
+      defenderCharacter.push(darthM);
       $('.defender-darth_maul').css('background-color', 'black');
       $('.defender-darth_maul').show();
     }
@@ -247,5 +266,9 @@ $(document).ready(function() {
           ' damage.'
       );
     }
+  });
+
+  $('.btn-secondary').on('click', function() {
+    location.reload();
   });
 });
