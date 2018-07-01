@@ -59,3 +59,13 @@ img {
 #darth-maul-hp {
   padding: 0;
 }
+
+.pagetitles {
+  text-align: left;
+  margin-left: 10px;
+}
+
+button {
+  position: absolute;
+  left: 10px;
+}
